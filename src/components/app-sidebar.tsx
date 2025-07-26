@@ -46,9 +46,9 @@ export function AppSidebar({
         onChange: () => onSelect(SeletOption.QuictScan),
       },
       {
-        title: "Track Href",
+        title: "Track Fraud",
         icon: IconAnalyze,
-        onChange: () => onSelect(SeletOption.TrackHref),
+        onChange: () => onSelect(SeletOption.TrackFraud),
       },
       {
         title: "Fraud Detection",

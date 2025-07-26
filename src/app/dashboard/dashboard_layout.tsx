@@ -2,16 +2,23 @@
 
 import { AppSidebar } from "@/components/app-sidebar"
 import { DomainData } from "@/components/domain-data"
+import GraphAnalysis from "@/components/graph-analisys"
+import { sampleTransactionData } from "@/components/graph-data"
 import { SiteHeader } from "@/components/site-header"
+import TrackFraud from "@/components/TrackFraud"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
 import {
     SidebarInset,
     SidebarProvider,
 } from "@/components/ui/sidebar"
 import React, { useState } from "react"
+import { toast } from "sonner"
 
 export enum SeletOption {
     QuictScan = "QuictScan",
-    TrackHref = "TrackHref",
+    TrackFraud = "TrackFraud",
     BlackListed = "BlackListed",
     StoredFraud = "StoredFraud",
     Reports = "Reports",
@@ -22,13 +29,63 @@ export enum SeletOption {
 
 function QuickScanDomain() {
     return (
-        <div>Quick Scan Domain</div>
-    )
-}
-
-function TrackHref() {
-    return (
-        <div>Track Href</div>
+        <div className="w-full h-[400px] flex justify-center items-center">
+            <Card className="w-full max-w-sm">
+                <CardHeader>
+                    <CardTitle>Domain Content Check</CardTitle>
+                    <CardDescription>
+                        Enter suspacious Domain
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <form>
+                        <div className="flex flex-col gap-6">
+                            <div className="grid gap-2">
+                                <Input
+                                    type="text"
+                                    placeholder="domanin ex. https://www.example.com"
+                                    required
+                                />
+                            </div>
+                            <div className="grid gap-2">
+                                <Input
+                                    type="text"
+                                    placeholder="keyword"
+                                    required
+                                />
+                            </div>
+                        </div>
+                    </form>
+                </CardContent>
+                <CardFooter className="flex-col gap-2">
+                    <Button type="submit" className="w-full"
+                        onClick={() =>
+                            toast("The Domain is save", {
+                                description: "Sunday, December 03, 2023 at 9:00 AM",
+                                action: {
+                                    label: "OKE",
+                                    onClick: () => console.log("Undo"),
+                                },
+                            })
+                        }>
+                        Quick Check
+                    </Button>
+                    <Button variant="outline" className="w-full"
+                        onClick={() =>
+                            toast("The Domain is not save", {
+                                description: "Sunday, December 03, 2023 at 9:00 AM",
+                                action: {
+                                    label: "Add to Blacklist",
+                                    onClick: () => console.log("Undo"),
+                                },
+                            })
+                        }
+                    >
+                        Deep Check
+                    </Button>
+                </CardFooter>
+            </Card>
+        </div>
     )
 }
 
@@ -40,11 +97,6 @@ function BlackListedDomain() {
     )
 }
 
-function FraudAnalisis() {
-    return (
-        <div>Mocked Fraud Analysis</div>
-    )
-}
 
 function SmartContractTransparency() {
     return (
@@ -64,8 +116,8 @@ function Reporting() {
     )
 }
 
-export default function Dashboard({}) {
-    const [selected, setSelected] = useState<SeletOption | null>(null)
+export default function Dashboard({ }) {
+    const [selected, setSelected] = useState<SeletOption>(SeletOption.QuictScan)
 
     return (
         <SidebarProvider
@@ -90,8 +142,8 @@ export default function Dashboard({}) {
                             <div className="px-4 lg:px-6">
                                 <div className="mb-4 text-sm text-muted-foreground">
                                     {selected === SeletOption.QuictScan && <QuickScanDomain />}
-                                    {selected === SeletOption.TrackHref && <TrackHref />}
-                                    {selected === SeletOption.StoredFraud && <FraudAnalisis />}
+                                    {selected === SeletOption.TrackFraud && <GraphAnalysis data={sampleTransactionData} />}
+                                    {selected === SeletOption.StoredFraud && <TrackFraud />}
                                     {selected === SeletOption.BlackListed && <BlackListedDomain />}
 
                                     {selected === SeletOption.SmartContract && <SmartContractTransparency />}
