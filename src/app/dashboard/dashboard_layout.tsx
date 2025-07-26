@@ -1,6 +1,7 @@
 'use client'
 
 import { AppSidebar } from "@/components/app-sidebar"
+import { DomainData } from "@/components/domain-data"
 import { SiteHeader } from "@/components/site-header"
 import {
     SidebarInset,
@@ -33,7 +34,9 @@ function TrackHref() {
 
 function BlackListedDomain() {
     return (
-        <div>Black Listed Domain</div>
+        <div>
+            <DomainData />
+        </div>
     )
 }
 
