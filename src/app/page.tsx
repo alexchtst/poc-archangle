@@ -47,6 +47,7 @@ export default function Home() {
             <li><code className="font-bold">{">_"}</code> Nares Ayu Prabowo</li>
             <li><code className="font-bold">{">_"}</code> Alex Cinatra Hutasoit</li>
             <li><code className="font-bold">{">_"}</code> Arkananta Fijratullah</li>
+            <li><code className="font-bold">{">_"}</code> DAFFA ASKAR FATHIN</li>
           </ol>
         </div>
       </main>
