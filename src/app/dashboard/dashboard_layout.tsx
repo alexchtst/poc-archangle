@@ -14,13 +14,54 @@ export enum SeletOption {
     BlackListed = "BlackListed",
     StoredFraud = "StoredFraud",
     Reports = "Reports",
+    SmartContract = "SmartContract",
+    Services = "Services",
+    Reporting = "Reporting"
 }
 
-export default function DashboardLayout({
-    children,
-}: {
-    children: React.ReactNode
-}) {
+function QuickScanDomain() {
+    return (
+        <div>Quick Scan Domain</div>
+    )
+}
+
+function TrackHref() {
+    return (
+        <div>Track Href</div>
+    )
+}
+
+function BlackListedDomain() {
+    return (
+        <div>Black Listed Domain</div>
+    )
+}
+
+function FraudAnalisis() {
+    return (
+        <div>Mocked Fraud Analysis</div>
+    )
+}
+
+function SmartContractTransparency() {
+    return (
+        <div>SmartContractTransparency</div>
+    )
+}
+
+function UpCommingServices() {
+    return (
+        <div>UpCommingServices</div>
+    )
+}
+
+function Reporting() {
+    return (
+        <div>Reporting</div>
+    )
+}
+
+export default function Dashboard({}) {
     const [selected, setSelected] = useState<SeletOption | null>(null)
 
     return (
@@ -44,9 +85,15 @@ export default function DashboardLayout({
                     <div className="@container/main flex flex-1 flex-col gap-2">
                         <div className="flex flex-col gap-4 py-4 md:gap-6 md:py-6">
                             <div className="px-4 lg:px-6">
-                                {children}
                                 <div className="mb-4 text-sm text-muted-foreground">
-                                    Selected: {selected ?? "None"}
+                                    {selected === SeletOption.QuictScan && <QuickScanDomain />}
+                                    {selected === SeletOption.TrackHref && <TrackHref />}
+                                    {selected === SeletOption.StoredFraud && <FraudAnalisis />}
+                                    {selected === SeletOption.BlackListed && <BlackListedDomain />}
+
+                                    {selected === SeletOption.SmartContract && <SmartContractTransparency />}
+                                    {selected === SeletOption.Services && <UpCommingServices />}
+                                    {selected === SeletOption.Reporting && <Reporting />}
                                 </div>
                             </div>
                         </div>

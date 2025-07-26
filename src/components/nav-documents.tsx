@@ -24,7 +24,7 @@ export function NavDocuments({
       <SidebarGroupLabel>Tools</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
-          <SidebarMenuItem key={item.name} onClick={item.onChange}>
+          <SidebarMenuItem key={item.name} onClick={item.onChange} className="cursor-pointer">
             <SidebarMenuButton asChild>
               <div>
                 <item.icon />

@@ -10,6 +10,7 @@ import {
   IconReport,
   IconRobot,
   IconScan,
+  IconShield,
 } from "@tabler/icons-react"
 
 import { NavDocuments } from "@/components/nav-documents"
@@ -35,7 +36,7 @@ export function AppSidebar({
 }) {
   const data = {
     user: {
-      name: "shadcn",
+      name: "archangle",
       email: "m@example.com",
       avatar: "/avatars/shadcn.jpg",
     },
@@ -51,9 +52,9 @@ export function AppSidebar({
         onChange: () => onSelect(SeletOption.TrackHref),
       },
       {
-        title: "Analytics",
+        title: "Fraud Detection",
         icon: IconChartBar,
-        onChange: () => console.log("Analytics clicked"),
+        onChange: () => onSelect(SeletOption.StoredFraud),
       },
       {
         title: "BlackListed",
@@ -63,19 +64,19 @@ export function AppSidebar({
     ],
     documents: [
       {
-        name: "Stored Fraud",
-        icon: IconDatabase,
-        onChange: () => onSelect(SeletOption.BlackListed),
+        name: "Smart Contract Transparancy",
+        icon: IconShield,
+        onChange: () => onSelect(SeletOption.SmartContract),
       },
       {
         name: "Reports",
         icon: IconReport,
-        onChange: () => onSelect(SeletOption.BlackListed),
+        onChange: () => onSelect(SeletOption.Reporting),
       },
       {
-        name: "Agent Assistance",
+        name: "Up Comming Services",
         icon: IconRobot,
-        onChange: () => onSelect(SeletOption.BlackListed),
+        onChange: () => onSelect(SeletOption.Services),
       },
     ],
   }
