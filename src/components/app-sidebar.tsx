@@ -4,7 +4,6 @@ import * as React from "react"
 import {
   IconAnalyze,
   IconChartBar,
-  IconDatabase,
   IconFolder,
   IconLighter,
   IconReport,
